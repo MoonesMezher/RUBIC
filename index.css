@@ -1,0 +1,793 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-orange: #ff5900;
+    --color-gray: #808080;
+    --color-red: #ff0000;
+    --color-brown-transparent: #ff590077;
+
+    --bg-primary: #ffffff;
+    --bg-accent: #ff5900;
+    --bg-overlay: #ff590077;
+    --bg-dark: #000000;
+
+    --text-primary: #ffffff;
+    --text-accent: #ff5900;
+    --text-secondary: #808080;
+    --text-danger: #ff0000;
+    --text-dark: #000000;
+
+    --fill-light: #ffffff;
+    --fill-dark: #000000;
+
+    --border-light: #ffffff;
+    --border-accent: #ff5900;
+    --border-secondary: #808080;
+    --border-dark: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+html {
+    font-family: "Rubik", sans-serif;
+    font-display: swap;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 .5rem;
+    }
+}
+
+section {
+    margin-top: 5rem;
+}
+
+/* Header */
+header {
+    background-color: transparent;
+    padding: 1rem;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container .logo {
+    width: 50px;
+}
+
+header .container nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+header .container nav ul {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+header .container nav ul li a {
+    color: var(--text-primary);
+    transition: .3s;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid transparent;
+}
+
+header .container nav ul li a:hover {
+    border-bottom-color: var(--border-light);
+}
+
+header .container nav select {
+    background-color: var(--bg-dark);
+    padding: .6rem .8rem;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    border-radius: 5px;
+}
+
+header .container .menu {
+    display: none;
+}
+
+/* Hero Section */
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+}
+
+.hero .container .brush {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: var(--bg-accent);
+    box-shadow: 0 0 150px 100px var(--bg-accent);
+}
+
+.hero .container .content {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 
+        -5px -5px rgba(255, 89, 0, .4), 
+        -10px -10px rgba(255, 89, 0, .3), 
+        -15px -15px rgba(255, 89, 0, .2), 
+        -20px -20px rgba(255, 89, 0, .1), 
+        -25px -25px rgba(255, 89, 0, .05);
+}
+
+.hero .container .content h1 {
+    color: var(--text-accent);
+    max-width: 500px;
+    line-height: 30px;
+}
+
+.hero .container .content p {
+    max-width: 600px;
+    margin: 1rem 0;
+}
+
+.hero .container .content a {
+    display: block;
+    width: fit-content;
+    color: var(--text-primary);
+    padding: .8rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+    transition: .3s .2s;
+}
+.hero .container .content a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background-color: var(--bg-accent);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: .3s;
+}
+
+.hero .container .content a:hover::before {
+    left: 0;
+}
+
+.hero .container .content a:hover {
+    border-color: var(--border-accent);
+}
+
+.hero .container .rubic {
+    scale: .7;
+    margin: 0 auto;
+}
+
+/* Feedbacks Section */ 
+.feedbacks .container {
+    position: relative;
+}
+
+.feedbacks .container .brush {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: var(--bg-accent);
+    box-shadow: 0 0 150px 100px var(--bg-accent);
+}
+
+.feedbacks .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feedbacks .container .cards {
+    display: flex;
+}
+
+.feedbacks .container .cards .box {
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+    padding: 1rem;
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.feedbacks .container .cards .box::before,
+.feedbacks .container .cards .box::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: var(--bg-accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.feedbacks .container .cards .box::before {
+    left: -5px;
+    top: -5px;
+}
+
+.feedbacks .container .cards .box::after {
+    bottom: -5px;
+    right: -5px;
+}
+
+.feedbacks .container .cards .box h3 {
+    margin-bottom: 1rem;
+}
+
+.feedbacks .container .cards .box p {
+    font-size: .9rem;
+    line-height: 20px;
+    max-width: 500px;
+}
+
+.feedbacks .container .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.feedbacks .container .dots .dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--bg-overlay);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.feedbacks .container .dots .dot.active {
+    background-color: var(--bg-accent);
+}
+
+.feedbacks .container .box-shadow {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 
+        5px -5px rgba(255, 89, 0, .4), 
+        10px -10px rgba(255, 89, 0, .3), 
+        15px -15px rgba(255, 89, 0, .2), 
+        20px -20px rgba(255, 89, 0, .1), 
+        25px -25px rgba(255, 89, 0, .05);
+    width: 500px;
+    height: 250px;
+    background-color: transparent;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+}
+
+/* Results Section */ 
+.results .container {
+    position: relative;
+}
+
+.results .container .brush {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: var(--bg-accent);
+    box-shadow: 0 0 150px 100px var(--bg-accent);
+}
+
+.results h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.results .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.results .box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.results .box .img {
+    height: 100%;
+}
+.results .box .img img {
+    height: 100%;
+}
+
+.results .box .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    scale: 0;
+    opacity: 0;
+    transition: .3s;
+}
+
+.results .box:hover .content {
+    scale: 1;
+    opacity: 1;
+}
+
+.results .box .content a {
+    background-color: var(--bg-accent);
+    padding: .5rem;
+    border-radius: 5px;
+    color: var(--text-primary);
+}
+.results a.main-btn {
+    background-color: transparent;
+    display: block;
+    width: fit-content;
+    color: var(--text-primary);
+    padding: .8rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+    transition: .3s .2s;
+    margin: 2rem auto;
+}
+
+.results a.main-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background-color: var(--bg-accent);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: .3s;
+}
+
+.results a.main-btn:hover::before {
+    left: 0;
+}
+
+.results a.main-btn:hover {
+    border-color: var(--border-accent);
+}
+
+/* About Section  */
+.about-us .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+.about-us .container .box {
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-accent);
+    margin: 0 auto;
+}
+
+.about-us .container .brush {
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 0 0 150px 100px var(--bg-overlay);
+}
+
+.about-us .container .content {
+    position: relative;
+}
+.about-us .container .box-shadow {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 
+        5px -5px rgba(255, 89, 0, .4), 
+        10px -10px rgba(255, 89, 0, .3), 
+        15px -15px rgba(255, 89, 0, .2), 
+        20px -20px rgba(255, 89, 0, .1), 
+        25px -25px rgba(255, 89, 0, .05);
+    width: 350px;
+    height: 150px;
+    background-color: transparent;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+}
+
+.about-us .container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.about-us .container h3 {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.about-us .container p {
+    font-size: .9rem;
+}
+
+/* Services Section  */
+.services .container {
+    position: relative;
+}
+
+.services .container .brush {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 0 0 150px 100px var(--bg-overlay);
+    right: 0;
+    top: 0;
+}
+
+.services .container .box-shadow {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 
+        -5px -5px rgba(255, 89, 0, .4), 
+        -10px -10px rgba(255, 89, 0, .3), 
+        -15px -15px rgba(255, 89, 0, .2), 
+        -20px -20px rgba(255, 89, 0, .1), 
+        -25px -25px rgba(255, 89, 0, .05);
+    width: 350px;
+    height: 150px;
+    background-color: transparent;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+}
+
+.services .container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.services .container .p {
+    margin-bottom: 3rem;
+}
+
+.services .container .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem
+}
+
+.services .container .box {
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 20px 0;
+    box-shadow: 10px 10px 0 0 var(--bg-accent);
+    color: var(--color-black);
+    text-align: center;
+}
+
+.services .container .icon {
+    background-color: var(--bg-accent);
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.services .container .icon svg {
+    color: var(--color-white);
+}
+
+.services .container .box h4 {
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+/* FAQs Section */ 
+.faqs .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.faqs .container ul {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    color: var(--color-black);
+}
+
+.faqs .container li.active .answer {
+    display: block;
+}
+
+.faqs .container ul li .question {
+    margin-bottom: .2rem;
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.faqs .container ul li .question:hover {
+    background-color: var(--bg-accent);
+}
+
+.faqs .container ul li .answer {
+    background-color: var(--border-light);
+    padding: 1rem;
+    border-radius: 8px;
+    display: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.faqs .container ul li .answer::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-accent);
+    display: block;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg) ;
+}
+
+/* Contact Section  */
+.contact {
+    margin-bottom: 3rem;
+}
+.contact .container {
+    position: relative;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px -10px var(--bg-primary);
+}
+
+.contact .container .brush {
+    position: absolute;
+    right: 0;
+    top: 0%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: var(--bg-accent);
+    box-shadow: 0 0 150px 100px var(--bg-accent);
+}
+
+.contact .container .shadow {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 
+        -5px -5px rgba(255, 89, 0, .4), 
+        -10px -10px rgba(255, 89, 0, .3), 
+        -15px -15px rgba(255, 89, 0, .2), 
+        -20px -20px rgba(255, 89, 0, .1), 
+        -25px -25px rgba(255, 89, 0, .05);
+    width: 350px;
+    height: 150px;
+    background-color: transparent;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+}
+
+.contact .container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact .container .grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.contact .container form {
+    padding: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(45deg, var(--color-black) 10%, var(--bg-accent) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact .container form > div {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.contact .container label {
+    font-size: .9rem;
+}
+
+.contact .container input,
+.contact .container textarea {
+    padding: .7rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.contact .container textarea {
+    height: 150px;
+}
+.contact .container button {
+    width: fit-content;
+    padding: .5rem;
+    background-color: var(--bg-dark);
+    margin: 1rem auto;
+    color: var(--text-primary);
+    cursor: pointer;
+    border: 1px solid var(--color-white);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact .container button::before {
+    content: "";
+    position: absolute;
+    transition: .3s;
+    left: -100%;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-accent);
+    z-index: -1;
+}
+
+.contact .container button:hover::before {
+    left: 0;
+}
+
+.contact .container .box {
+    margin: 0 auto;
+}
+
+/* Footer  */
+footer {
+    padding-top: 5rem;
+}
+
+footer .container .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+footer .container .top .left > div {
+    width: 50px;
+}
+
+footer .container .top .left p {
+    max-width: 400px;
+    margin: 1rem;
+}
+footer .container .top .right {
+    display: flex;
+    gap: 2rem;
+}
+
+footer .container .top .right ul h5 {
+    margin-bottom: .7rem;
+}
+footer .container .top .right ul li {
+    margin-bottom: .5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+footer .container .top .right ul li:hover {
+    transform: translateX(.5rem);
+    text-decoration: underline;
+}
+
+footer .container .hr {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-primary);
+    margin: 1rem 0;
+}
+
+footer .container .bottom {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+footer .container .bottom p span {
+    color: var(--text-accent);
+}
+
+/* FLoat Button  */
+a.float-button {
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    right: .5rem;
+    bottom: .5rem;
+    z-index: 999;
+}
+
+a.float-button svg {
+    color: var(--text-dark);
+}
